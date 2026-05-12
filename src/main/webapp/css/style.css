@@ -1,1 +1,200 @@
-@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+    background: linear-gradient(135deg,#0f172a,#1e293b,#2563eb);
+    min-height:100vh;
+    padding:30px;
+    color:white;
+}
+
+/* Glass Card */
+
+.glass-card{
+    width:100%;
+    padding:35px;
+    border-radius:24px;
+    background: rgba(255,255,255,0.10);
+    backdrop-filter: blur(15px);
+    border:1px solid rgba(255,255,255,0.15);
+    box-shadow:0 8px 32px rgba(0,0,0,0.35);
+    animation:fadeIn 0.8s ease;
+}
+
+/* Titles */
+
+.page-title{
+    text-align:center;
+    font-size:32px;
+    font-weight:700;
+    margin-bottom:8px;
+}
+
+.sub-title{
+    text-align:center;
+    color:#dbeafe;
+    margin-bottom:30px;
+    font-size:15px;
+}
+
+/* Labels */
+
+.form-label{
+    margin-bottom:8px;
+    font-weight:500;
+}
+
+/* Inputs */
+
+.form-control{
+    height:50px;
+    border:none;
+    border-radius:14px;
+    background: rgba(255,255,255,0.12);
+    color:white;
+}
+
+textarea.form-control{
+    height:auto;
+}
+
+.form-control:focus{
+    background: rgba(255,255,255,0.18);
+    color:white;
+    border:1px solid #60a5fa;
+    box-shadow:none;
+}
+
+.form-control::placeholder{
+    color:#d1d5db;
+}
+
+/* Buttons */
+
+.btn-theme{
+    height:50px;
+    border:none;
+    border-radius:14px;
+    background: linear-gradient(to right,#3b82f6,#06b6d4);
+    color:white;
+    font-weight:600;
+    transition:0.3s;
+}
+
+.btn-theme:hover{
+    transform:translateY(-2px);
+    box-shadow:0 8px 20px rgba(59,130,246,0.4);
+}
+
+/* Links */
+
+.bottom-link{
+    text-align:center;
+    margin-top:20px;
+    color:#dbeafe;
+}
+
+.bottom-link a{
+    color:white;
+    text-decoration:none;
+    font-weight:600;
+}
+
+.bottom-link a:hover{
+    text-decoration:underline;
+}
+
+/* Animation */
+
+@keyframes fadeIn{
+    from{
+        opacity:0;
+        transform:translateY(20px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* NAVBAR */
+
+.custom-navbar{
+    background: rgba(15,23,42,0.75);
+    backdrop-filter: blur(14px);
+    border-bottom:1px solid rgba(255,255,255,0.08);
+    padding-top:14px;
+    padding-bottom:14px;
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+
+.brand-logo{
+    font-size:26px;
+    font-weight:700;
+    color:white !important;
+    letter-spacing:1px;
+}
+
+.nav-btn{
+    text-decoration:none;
+    color:white;
+    padding:10px 18px;
+    border-radius:12px;
+    transition:0.3s;
+    font-weight:500;
+    background: rgba(255,255,255,0.06);
+    border:1px solid rgba(255,255,255,0.08);
+}
+
+.nav-btn:hover{
+    background: rgba(59,130,246,0.25);
+    transform:translateY(-2px);
+    color:white;
+}
+
+.leaderboard-btn{
+    background: linear-gradient(to right,#f59e0b,#facc15);
+    color:#111827;
+    font-weight:600;
+}
+
+.leaderboard-btn:hover{
+    color:#111827;
+    box-shadow:0 8px 20px rgba(250,204,21,0.3);
+}
+
+.logout-btn{
+    text-decoration:none;
+    padding:10px 18px;
+    border-radius:12px;
+    background: linear-gradient(to right,#ef4444,#dc2626);
+    color:white;
+    font-weight:600;
+    transition:0.3s;
+}
+
+.logout-btn:hover{
+    transform:translateY(-2px);
+    box-shadow:0 8px 20px rgba(239,68,68,0.35);
+    color:white;
+}
+
+.profile-btn{
+    background: linear-gradient(to right,#8b5cf6,#6366f1);
+    color:white;
+    font-weight:600;
+}
+
+.profile-btn:hover{
+    transform:translateY(-2px);
+    box-shadow:0 8px 20px rgba(139,92,246,0.3);
+    color:white;
+}

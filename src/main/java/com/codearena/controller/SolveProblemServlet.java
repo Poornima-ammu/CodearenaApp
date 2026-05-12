@@ -1,41 +1,45 @@
 package com.codearena.controller;
 
 import jakarta.servlet.ServletException;
+
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import com.codearena.entity.Problem;
+import com.codearena.service.ProblemService;
 
 /**
  * Servlet implementation class SolveProblemServlet
  */
-@WebServlet("/SolveProblemServlet")
+@WebServlet("/solveProblem")
 public class SolveProblemServlet extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public SolveProblemServlet() {
-        super();
-        // TODO Auto-generated constructor stub
+
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse res)
+            throws ServletException, IOException {
+
+        String idParam = req.getParameter("id");
+
+        if(idParam == null || idParam.isEmpty()) {
+            res.sendError(HttpServletResponse.SC_BAD_REQUEST, "Problem ID is missing");
+            return;
+        }
+
+        int id = Integer.parseInt(idParam);
+
+        ProblemService problemService = new ProblemService();
+        Problem problem = problemService.getProblemById(id);
+
+        if(problem == null) {
+            res.sendError(HttpServletResponse.SC_NOT_FOUND, "Problem not found");
+            return;
+        }
+
+        req.setAttribute("problem", problem);
+
+        req.getRequestDispatcher("/WEB-INF/views/solveProblem.jsp")
+           .forward(req, res);
     }
-
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
-	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
-	}
-
 }

@@ -4,7 +4,7 @@ import jakarta.servlet.ServletContextEvent;
 import jakarta.servlet.ServletContextListener;
 import jakarta.servlet.annotation.WebListener;
 
-import com.codearena.util.HibernateUtil;
+import com.mysql.cj.jdbc.AbandonedConnectionCleanupThread;
 
 @WebListener
 public class AppContextListener implements ServletContextListener {
@@ -12,8 +12,11 @@ public class AppContextListener implements ServletContextListener {
     @Override
     public void contextDestroyed(ServletContextEvent sce) {
 
-        System.out.println("Closing Hibernate SessionFactory...");
-
-        HibernateUtil.getSessionFactory().close();
+        try {
+            AbandonedConnectionCleanupThread.checkedShutdown();
+            System.out.println("MySQL Cleanup Thread stopped.");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

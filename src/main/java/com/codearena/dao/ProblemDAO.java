@@ -28,5 +28,11 @@ public class ProblemDAO {
 		
 		return problems;
 	}
+	public Problem getProblemById(int id) {
+		Session session=HibernateUtil.getSessionFactory().openSession();
+		Problem problem=session.get(Problem.class,id);
+		session.close();
+		return problem;
+	}
 	
 }

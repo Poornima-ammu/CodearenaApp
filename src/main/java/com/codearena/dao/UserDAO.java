@@ -1,5 +1,6 @@
 package com.codearena.dao;
 import org.hibernate.Session;
+import java.util.*;
 import org.hibernate.query.Query;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
@@ -33,5 +34,35 @@ public class UserDAO {
 		session.close();
 		return user;
 	}
+	public void updateUser(User user) {
 
+	    Session session =
+	            HibernateUtil.getSessionFactory()
+	                         .openSession();
+
+	    Transaction tx =
+	            session.beginTransaction();
+
+	    session.update(user);
+
+	    tx.commit();
+
+	    session.close();
+	}
+	public List<User> getLeaderboardUsers() {
+
+	    Session session =
+	            HibernateUtil.getSessionFactory()
+	                         .openSession();
+
+	    List<User> users =
+	            session.createQuery(
+	            "FROM User ORDER BY score DESC",
+	            User.class)
+	            .list();
+
+	    session.close();
+
+	    return users;
+	}
 }

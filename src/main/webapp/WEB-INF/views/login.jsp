@@ -9,62 +9,106 @@
 <meta charset="UTF-8">
 <title>Login</title>
 
-<link
-href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet">
+
+<link rel="stylesheet" href="css/style.css">
+		<style>
+		.glass-card{
+    width: 100%;
+    max-width: 450px;
+
+    padding: 40px;
+
+    border-radius: 20px;
+
+    background: linear-gradient(135deg,#0f172a,#1e293b,#2563eb);
+
+    backdrop-filter: blur(14px);
+
+    box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+    
+}
+body{
+    margin: 0;
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: linear-gradient(
+        135deg,
+        #0f172a,
+        #1d4ed8
+    );
+
+    font-family: sans-serif;
+}
+
+
+      </style>
 
 </head>
 
-<body class="bg-light">
+<body>
 
-<div class="container mt-5">
+<div class="glass-card">
 
-    <div class="row justify-content-center">
+    <h1 class="page-title">
+        Welcome Back 👋
+    </h1>
 
-        <div class="col-md-5">
+    <p class="sub-title">
+        Login to continue coding
+    </p>
 
-            <div class="card p-4 shadow">
+    <form action="login" method="post">
 
-                <h2 class="text-center mb-4">
-                    Login
-                </h2>
+        <div class="mb-3">
 
-                <form action="login" method="post">
+            <label class="form-label">
+                Email
+            </label>
 
-                    <div class="mb-3">
-
-                        <label>Email</label>
-
-                        <input type="email"
-                               name="email"
-                               class="form-control"
-                               required>
-
-                    </div>
-
-                    <div class="mb-3">
-
-                        <label>Password</label>
-
-                        <input type="password"
-                               name="password"
-                               class="form-control"
-                               required>
-
-                    </div>
-
-                    <button type="submit"
-                            class="btn btn-primary w-100">
-
-                        Login
-
-                    </button>
-
-                </form>
-
-            </div>
+            <input type="email"
+                   name="email"
+                   class="form-control"
+                   placeholder="Enter email"
+                   required>
 
         </div>
+
+        <div class="mb-4">
+
+            <label class="form-label">
+                Password
+            </label>
+
+            <input type="password"
+                   name="password"
+                   class="form-control"
+                   placeholder="Enter password"
+                   required>
+
+        </div>
+
+        <button type="submit"
+                class="btn btn-theme w-100">
+
+            Login
+
+        </button>
+
+    </form>
+
+    <div class="bottom-link">
+
+        Don't have an account?
+
+        <a href="/WEB-INF/views/register.jsp">
+            Register
+        </a>
 
     </div>
 

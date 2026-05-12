@@ -1,5 +1,8 @@
 package com.codearena.entity;
 import jakarta.persistence.Entity;
+import jakarta.persistence.Column;
+
+
 import jakarta.persistence.Table;
 import jakarta.persistence.Id;
 import jakarta.persistence.GeneratedValue;
@@ -11,6 +14,7 @@ public class User {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
 	private String username;
+	@Column(unique=true)
 	private String email;
 	private String  password;
 	private String role;

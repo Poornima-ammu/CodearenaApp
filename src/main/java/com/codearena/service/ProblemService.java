@@ -10,5 +10,9 @@ public class ProblemService {
 	public List<Problem>getAllProblems(){
 		return problemDAO.getAllProblems();
 	}
+	public Problem getProblemById(int id) {
+		return problemDAO.getProblemById(id);
+		
+	}
 
 }
